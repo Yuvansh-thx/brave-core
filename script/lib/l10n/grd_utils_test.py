@@ -169,6 +169,23 @@ class BraveifyLanguageFormsTest(unittest.TestCase):
         self.assertEqual(self.braveify('cs', 'funkce Chromu.'), 'funkce Brave.')
         self.assertEqual(self.braveify('fa', 'کنید chrome را'), 'کنید Brave را')
 
+    def test_replaces_ru_homepage_strings_only_exact_matches(self):
+        self.assertEqual(
+            self.braveify('ru', 'Главная страница'), 'Домашняя страница'
+        )
+        self.assertEqual(
+            self.braveify('ru', 'Главная страница Brave'),
+            'Домашняя страница Brave',
+        )
+        self.assertEqual(
+            self.braveify('ru', 'Изменить главную страницу'),
+            'Изменить домашнюю страницу',
+        )
+        self.assertEqual(
+            self.braveify('ru', 'Открыть главную страницу сайта'),
+            'Открыть главную страницу сайта',
+        )
+
     def test_replaces_chrome_at_end_of_sentence(self):
         self.assertEqual(self.braveify('fa', 'کنید chrome.'), 'کنید Brave.')
 

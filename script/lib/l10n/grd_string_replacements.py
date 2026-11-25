@@ -91,6 +91,12 @@ language_branding_replacements = {
     'fa': [(r'(?<![/.\-])\bchrome\b(?![:\-/]|\.\w)', r'Brave')],
     # Chromium's translation starts with a Cyrillic C.
     'ky': [(r'\u0421hrome', r'Brave')],
+    # Use "Home page" wording instead of "Main page" for Homepage UI strings.
+    'ru': [
+        (r'^Главная страница$', r'Домашняя страница'),
+        (r'^Главная страница Brave$', r'Домашняя страница Brave'),
+        (r'^Изменить главную страницу$', r'Изменить домашнюю страницу'),
+    ],
     'sl': [
         (r'Brave Chroma\b', r'Brave'),
         (r'\bChroma\b', r'Brave'),
